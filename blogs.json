@@ -1,0 +1,26 @@
+[
+  {
+    "id": 1,
+    "title": "How to Build a Modern Website in 2025",
+    "thumbnailUrl": "https://celadon-cocada-e8d448.netlify.app/WST7830e9sa8web1.jpg",
+    "date": "2025-06-10",
+    "category": "Professional",
+    "content": "When I first started building websites, the array of technologies seemed overwhelming, but I discovered that creating a modern website in 2025 boils down to mastering core fundamentals before exploring advanced tools. Begin with HTML to structure your content, CSS to style it beautifully, and JavaScript to add interactivity. These three pillars form the foundation of every website. Once comfortable, explore efficient tools like VS Code for writing code, Git for version control, and frameworks like React for building dynamic interfaces. Modern web development demands mobile-first designs, fast loading times, and accessibility features like dark mode - all achievable through responsive CSS techniques and optimized assets. The deployment process has never been easier with platforms like Netlify offering free hosting with simple drag-and-drop functionality. As you progress, consider learning SEO optimization, basic backend functionality, and performance metrics to elevate your site. Remember, building a professional website doesn't require knowing everything at once. Start small, focus on one concept at a time, and gradually expand your skills. With consistent practice and the wealth of free resources available online, anyone can create an impressive, functional website in today's digital landscape."
+  },
+  {
+    "id": 2,
+    "title": "My Personal Journey into Coding",
+    "thumbnailUrl": "https://celadon-cocada-e8d448.netlify.app/WST7830e9sa8cdc3.jpg",
+    "date": "2025-05-22",
+    "category": "Personal",
+    "content": "My journey into the world of programming wasn't a straight line. It started with a simple curiosity about how video games were made, which led me down a rabbit hole of C++ tutorials and late-night coding sessions. I remember the immense satisfaction of compiling my first 'Hello, World!' application. It felt like magic. From there, I transitioned to web development, captivated by the ability to create something and share it with the world instantly. This path has been filled with challenges, frustrating bugs, and moments of self-doubt, but the thrill of solving a complex problem and building something new from scratch is what keeps me going every single day."
+  },
+  {
+    "id": 3,
+    "title": "JavaScript Tips and Tricks for Beginners",
+    "thumbnailUrl": "https://celadon-cocada-e8d448.netlify.app/WST7830e9sa8jvs2.jpg",
+    "date": "2025-06-01",
+    "category": "Professional",
+    "content": "JavaScript is a powerful and versatile language, but it has its quirks. For beginners, a few key tips can make a huge difference. Firstly, understand the difference between `let`, `const`, and `var`. Always prefer `const` to prevent accidental reassignments. Secondly, embrace asynchronous programming with `async/await`—it makes handling asynchronous operations like API calls much cleaner than callbacks or promises alone. Lastly, learn to use your browser's developer tools effectively. The console is your best friend for debugging, and the network tab will help you understand how your application communicates with servers. These small habits will build a strong foundation for your future projects."
+  }
+]

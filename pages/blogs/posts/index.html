@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sayan - Blog</title>
+    <link rel="stylesheet" href="../../../style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" integrity="sha512-SnH5WK+bZxgPHs44uWIX+LLJAJ9/2PkPKZ5QiAj6Ta86w+fsb2TkcmfRyVX3pBnMFcV7oQPJkl9QevSCWr3W6A==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <header class="header">
+        <nav class="navbar">
+            <div class="container">
+                <a href="../../../index.html" class="logo">Sayan.<span class="logo-project-ext">blogs</span></a>
+                <ul class="nav-links">
+                    <li><a href="../../../index.html">Home</a></li>
+                    <li><a href="../../../pages/Project/index.html">Projects</a></li>
+                    <li><a href="../../../pages/blogs/index.html">Blogs</a></li>
+                    <li><a href="../../../pages/about/index.html">About</a></li>
+                </ul>
+                <div class="hamburger">
+                    <span class="bar"></span>
+                    <span class="bar"></span>
+                    <span class="bar"></span>
+                </div>
+            </div>
+        </nav>
+    </header>
+
+    <main>
+        <section class="single-post-page">
+            <div class="container">
+                <a href="../index.html" onclick="event.preventDefault(); window.history.back();" class="btn-back">
+                    <i class="fas fa-arrow-left"></i> Back to Blog
+                </a>
+
+                <article id="post-content-area">
+                    <header class="post-header">
+                        <h1 id="post-title">Loading Post...</h1>
+                        <div id="post-meta"></div>
+                    </header>
+                    <div class="post-thumbnail-container">
+                        <img id="post-image" src="" alt="">
+                    </div>
+                    <div id="post-body"></div>
+                </article>
+            </div>
+        </section>
+    </main>
+    
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <h3 class="footer-title">Get in Touch</h3>
+                <p class="footer-contact-email">Feel free to reach out for collaborations or just a friendly hello!</p>
+                <div class="footer-social-links">
+                    <a href="https://www.linkedin.com/in/sayanjc3639q" target="_blank" aria-label="LinkedIn" title="Sayanyanjc3639q">
+                        <i class="fa-brands fa-linkedin-in"></i>
+                    </a>
+                    <a href="https://github.com/sayanjc3639q" target="_blank" aria-label="GitHub" title="sayanjc3639q">
+                        <i class="fa-brands fa-github"></i>
+                    </a>
+                    <a href="https://www.instagram.com/sayan.void" target="_blank" aria-label="Instagram" title="sayan.void">
+                        <i class="fa-brands fa-instagram"></i>
+                    </a>
+                    <a href="mailto:jcsayan7@gmail.com" aria-label="Email" title="jcsayan7@gmail.com">
+                        <i class="fa-solid fa-envelope"></i>
+                    </a>
+                </div>
+            </div>
+            <p class="footer-copyright">&copy; 2025 Sayan Maity. All Rights Reserved.</p>
+        </div>
+    </footer>
+    
+    <script src="../../../post.js"></script>
+    <script src="../../../script.js"></script>
+</body>
+</html>

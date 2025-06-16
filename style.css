@@ -1,0 +1,2035 @@
+/* --- CSS Variables for Easy Theme Customization --- */
+:root {
+    --bg-color: #121212; /* Very dark grey (almost black) */
+    --primary-color: #1a1a1a; /* Dark grey for cards */
+    --secondary-color: #2a2a2a; /* Slightly lighter grey for borders/hovers */
+    --accent-color: #00aaff; /* A vibrant, electric blue */
+    --text-color: #e0e0e0; /* Light grey for text */
+    --text-color-dark: #a0a0a0; /* Dimmer text */
+    --font-family: 'Poppins', sans-serif;
+    --card-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+    --card-hover-shadow: 0 6px 25px rgba(0, 170, 255, 0.2);
+}
+
+/* --- General & Reset Styles (No Changes Here) --- */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    font-family: var(--font-family);
+    background-color: var(--bg-color);
+    color: var(--text-color);
+    line-height: 1.6;
+
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+}
+
+/* This tells the main content area to grow and fill available space */
+main {
+    flex-grow: 1;
+}
+
+/* ... (Keep existing styles for container, a, ul, img) ... */
+.container {
+    max-width: 1100px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+a {
+    color: var(--accent-color);
+    text-decoration: none;
+    transition: color 0.3s ease;
+}
+
+a:hover {
+    color: #fff;
+}
+
+ul {
+    list-style: none;
+}
+
+img {
+    max-width: 100%;
+}
+
+
+/* --- UPDATED Header & Navbar --- */
+.header {
+    background-color: rgba(18, 18, 18, 0.8);
+    backdrop-filter: blur(10px);
+    border-bottom: 1px solid var(--secondary-color);
+    padding: 1rem 0;
+    position: fixed;
+    width: 100%;
+    z-index: 1000;
+}
+
+.navbar .container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.logo {
+    font-weight: 700;
+    font-size: 1.5rem;
+    color: #fff;
+    z-index: 1001; /* Ensure logo stays above mobile nav */
+}
+
+.nav-links {
+    display: flex;
+    gap: 1.5rem;
+}
+
+.nav-links a {
+    color: var(--text-color);
+    font-weight: 400;
+    position: relative; /* Needed for the underline effect */
+    padding-bottom: 5px; /* Space for the underline */
+}
+
+
+
+/* NEW: Underline on hover effect */
+.nav-links a::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 0;
+    height: 2px;
+    background: linear-gradient(744deg, #9932CC, var(--accent-color) 60%, #00E5FF);
+    transition: width 0.3s ease-in-out;
+}
+
+.nav-links a:hover::after {
+    width: 100%;
+}
+
+/* NEW: Hamburger Menu Styles */
+.hamburger {
+    display: none; /* Hidden by default on desktop */
+    cursor: pointer;
+    flex-direction: column;
+    gap: 5px;
+}
+
+.bar {
+    display: block;
+    width: 25px;
+    height: 3px;
+    background-color: var(--text-color);
+    transition: all 0.3s ease-in-out;
+}
+
+
+/* --- Hero Section & Other sections (No Changes Here) --- */
+/* ... (Keep all existing styles for hero, buttons, sections, cards, and footer) ... */
+/* --- UPDATED Hero Section --- */
+
+.hero {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    min-height: 100vh;
+    padding-top: 80px; /* Offset for fixed header */
+    position: relative; /* This is crucial for positioning the canvas */
+    overflow: hidden; /* Prevents canvas overflow issues */
+}
+
+/* NEW: Style for the canvas background */
+#hero-canvas {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 0; /* Places canvas in the background */
+}
+
+/* NEW: Ensure hero content stays on top of the canvas */
+.hero .container {
+    position: relative;
+    z-index: 1;
+}
+.hero-content {
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 2rem;
+    color: #fff;
+}
+
+.hero-title {
+    font-size: 3.5rem;
+    font-weight: 700;
+    margin-bottom: 1rem;
+}
+
+.hero::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    /* Change this URL to point to your local image */
+    background-image: url('Asstes/background/bgintro.png');
+    background-size: cover;
+    background-position: center;
+    opacity: 0.2;
+    z-index: 1;
+
+    -webkit-mask-image: linear-gradient(to bottom, black 80%, transparent 100%);
+    mask-image: linear-gradient(to bottom, black 80%, transparent 100%);
+}
+
+.text-accent ,.logo-project-ext {
+    /* 1. Set the background to our gradient */
+    background: linear-gradient(744deg, #9932CC, var(--accent-color) 60%, #00E5FF);
+    
+    /* 2. Make the background larger than the element so it can move */
+    background-size: 200% auto;
+
+    /* 3. Clip the background to the text */
+    -webkit-background-clip: text;
+    background-clip: text;
+
+    /* 4. Make the text color transparent so the background shows through */
+    color: transparent;
+    -webkit-text-fill-color: transparent;
+
+    /* 5. Apply the animation */
+    animation: move-gradient 5s linear infinite;
+}
+
+/* Typewriter Cursor */
+.cursor {
+    display: inline-block;
+    width: 3px;
+    height: 3.5rem;
+    background-color: var(--accent-color);
+    margin-left: 8px;
+    animation: blink 1s infinite;
+}
+
+@keyframes blink {
+    0%, 100% { opacity: 1; }
+    50% { opacity: 0; }
+}
+
+.hero-subtitle {
+    font-size: 1.2rem;
+    color: var(--text-color-dark);
+    margin-bottom: 2rem;
+}
+
+.btn {
+    display: inline-block;
+    padding: 0.8rem 1.8rem;
+    border-radius: 5px;
+    font-weight: 600;
+    transition: all 0.3s ease;
+}
+
+/* --- UPDATED: Button with Swipe Hover Effect --- */
+.btn-primary {
+    /* Set the initial gradient background */
+    background: linear-gradient(744deg, #9932CC, var(--accent-color) 60%, #00E5FF);
+    color: #fff;
+    border: 1.5px solid #fff;
+    
+    /* Required for positioning the swipe layer */
+    position: relative;
+    overflow: hidden; /* Hides the swipe layer when it's outside */
+    z-index: 1; /* Establishes a stacking context */
+
+    /* Add a transition for the text color change */
+    transition: color 0.4s ease-in-out;
+}
+
+/* This is the white layer that will swipe in */
+.btn-primary::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    
+    /* Set the background for the hover state */
+    background: linear-gradient(744deg, #ffffff 60%, #ffffff);
+
+    /* Initially, position it outside the button to the left */
+    transform: translateX(-100%);
+    
+    /* Define the smooth transition for the swipe */
+    transition: transform 0.4s ease-in-out;
+
+    /* Place it behind the button's text */
+    z-index: -1;
+}
+
+/* On hover, slide the ::before element into view */
+.btn-primary:hover::before {
+    transform: translateX(0);
+}
+
+/* On hover, also change the text color to be readable on a white background */
+.btn-primary:hover {
+    color: var(--accent-color); /* Changes text to your theme's dark grey */
+}
+
+
+
+/* --- UPDATED: Secondary Button with Knockout Hover Effect --- */
+.btn-secondary {
+    border: 1px solid #fff;
+    color: #ffffff;
+    background: transparent;
+
+    /* Required for the effect */
+    position: relative;
+    overflow: hidden;
+}
+
+/* Ensure the text span is positioned correctly above other layers */
+.btn-secondary span {
+    position: relative;
+    z-index: 2;
+}
+
+/* This is the white layer that will swipe in */
+.btn-secondary::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: #fff; /* The white background for the hover state */
+    z-index: 1; /* Position it behind the text span */
+    
+    /* Start it outside the button and set up the transition */
+    transform: translateX(-101%); /* Start just outside */
+    transition: transform 0.4s ease-in-out;
+}
+
+/* On hover, slide the white layer into view */
+.btn-secondary:hover::before {
+    transform: translateX(0);
+}
+
+/* On hover, apply the magic blend mode to create the knockout effect */
+.btn-secondary:hover {
+    /* This makes the button's white background and black text blend
+       with the layers behind it, creating the cutout effect. */
+    mix-blend-mode: screen; 
+
+    /* The text color changes to black, which is necessary for the blend mode to work */
+    color: var(--accent-color);
+}
+
+.projects, .blogs {
+    padding: 6rem 0;
+    position: relative;
+}
+
+
+
+
+/* Add a subtle background to the projects section */
+
+
+.section-title {
+    text-align: center;
+    font-size: 2.5rem;
+    margin-bottom: 3rem;
+    font-weight: 600;
+}
+.project-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 2rem;
+}
+
+.project-card {
+    background: transparent; /* Changed from var(--primary-color) */
+    border: 1px solid var(--secondary-color);
+    border-radius: 8px;
+    overflow: hidden; /* This is crucial for containing the waves */
+    box-shadow: var(--card-shadow);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    position: relative; /* Needed for positioning the waves and content */
+}
+
+/* Position card content above the waves */
+.project-card .project-image,
+.project-card .project-content {
+    position: relative;
+    z-index: 2; /* Ensures content is on top of the waves */
+}
+
+.project-image {
+    border: 5px solid transparent;
+    clip-path: inset(0 round 10%)
+}
+
+/* --- NEW: Animated Wave Background for Cards --- */
+.wave {
+    position: absolute;
+    width: 540px;
+    height: 700px;
+    opacity: 0.6;
+    left: 0;
+    top: 0;
+    margin-left: -50%;
+    margin-top: -70%;
+    /* This gradient is from the example, it fits your theme well! */
+    background: linear-gradient(744deg, #9932CC, var(--accent-color) 60%, #00E5FF);
+    z-index: 1; /* Position waves behind the content */
+    border-radius: 40%;
+    /* Default (slow) animation state */
+    animation: wave 55s infinite linear;
+}
+
+/* Position the other two waves */
+.wave:nth-child(2) {
+    top: 210px;
+    animation-duration: 50s;
+}
+
+.wave:nth-child(3) {
+    top: 210px;
+    animation-duration: 45s;
+}
+
+/* On hover, speed up the animations */
+.project-card:hover .wave {
+    animation-duration: 3000ms;
+}
+
+.project-card:hover .wave:nth-child(2) {
+    animation-duration: 4000ms;
+}
+
+.project-card:hover .wave:nth-child(3) {
+    animation-duration: 5000ms;
+}
+
+/* The rotation keyframe */
+@keyframes wave {
+    0% {
+        transform: rotate(0deg);
+    }
+    100% {
+        transform: rotate(360deg);
+    }
+}
+
+.project-card:hover {
+    transform: translateY(-10px);
+    box-shadow: var(--card-hover-shadow);
+}
+
+.project-image {
+    width: 100%;
+    height: 200px;
+    object-fit: cover;
+}
+
+.project-content {
+    padding: 1.5rem;
+}
+
+.project-title {
+    font-size: 1.3rem;
+    margin-bottom: 0.5rem;
+    color: #fff;
+}
+
+.project-description {
+    color: #fff;
+    margin-bottom: 1rem;
+}
+
+.blogs{
+    margin:0;
+}
+
+.blogs::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-image: url('Asstes/background/bgintro.png');
+    background-size: cover;
+    background-position: center;
+    opacity: 0.2;
+    z-index: -1; /* Ensure it stays behind the blog cards */
+    -webkit-mask-image: linear-gradient(to top, black 80%, transparent 100%);
+    mask-image: linear-gradient(to top, black 80%, transparent 100%);
+}
+
+.blog-grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 1.5rem;
+}
+
+/* Update the .blog-card rule */
+.blog-card {
+    background-color: var(--primary-color);
+    border: 1px solid var(--secondary-color);
+    border-radius: 8px;
+    padding: 2rem;
+    box-shadow: var(--card-shadow);
+    background: linear-gradient(744deg, #411557, var(--accent-color) 60%, #003035);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    position: relative; /* Required for the new background layer */
+    overflow: hidden;   /* Also required */
+}
+
+/* Update the .blog-content rule */
+.blog-content {
+    position: relative;
+    z-index: 2; /* Ensures text is on top of the new background */
+}
+
+/* --- NEW: Animated Backgrounds for Blog Cards --- */
+
+/* This is the shared pseudo-element for the background layer */
+.blog-card::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 200%; /* Make the background larger than the card */
+    height: 200%;
+    z-index: 1; /* Position it behind the text content */
+    background-repeat: repeat;
+    
+    /* The animation that moves the background */
+    animation: move-background 90s linear infinite;
+}
+
+/* --- UPDATED: Animated ICON Backgrounds for Blog Cards --- */
+
+/* This is the shared pseudo-element for the background layer */
+/* --- UPDATED: Animated ICON Backgrounds for Blog Cards --- */
+
+/* This is the shared pseudo-element for the background layer */
+.blog-card::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 200%; 
+    height: 200%;
+    z-index: 1; 
+    background-repeat: repeat;
+    
+    /* The animation that moves the background */
+    animation: move-background 90s linear infinite;
+}
+
+/* Specific background for the "Modern Website" card with HIGHER opacity shapes */
+.blog-card-website::before {
+    /* The opacity value in fill='' and stroke='' has been increased from 0.04 to 0.08 */
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='250' height='250'%3E%3Crect x='15' y='30' width='60' height='40' fill='rgba(255,255,255,0.09)' rx='5'/%3E%3Cpath d='M 100 80 L 115 95 L 100 110' stroke='rgba(255,255,255,0.09)' stroke-width='4' fill='none' /%3E%3Cpath d='M 140 80 L 125 95 L 140 110' stroke='rgba(255,255,255,0.09)' stroke-width='4' fill='none' /%3E%3Ccircle cx='180' cy='150' r='25' fill='rgba(255,255,255,0.09)' /%3E%3C/svg%3E");
+}
+
+/* Specific background for the "JavaScript" card with HIGHER opacity shapes */
+.blog-card-js::before {
+     /* The opacity value in fill='' has been increased from 0.04 to 0.08 */
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='250' height='250'%3E%3Cpath d='M50 15 L75 30 L75 60 L50 75 L25 60 L25 30 Z' fill='rgba(255,255,255,0.09)'/%3E%3Crect x='150' y='100' width='40' height='40' fill='rgba(255,255,255,0.09)' rx='5'/%3E%3Ccircle cx='80' cy='180' r='20' fill='rgba(255,255,255,0.09)' /%3E%3C/svg%3E");
+}
+
+/* The keyframes that move the background position */
+@keyframes move-background {
+    0% {
+        transform: translate(0, 0);
+    }
+    100% {
+        transform: translate(-50%, -50%); /* Move it diagonally */
+    }
+}
+.blog-card:hover {
+    transform: translateY(-10px);
+    box-shadow: var(--card-hover-shadow);
+    background: linear-gradient(744deg,#003035 , var(--accent-color) 60%,#411557);
+}
+
+.blog-title {
+    font-size: 1.4rem;
+    color: #fff;
+    margin-bottom: 0rem;
+}
+
+.blog-excerpt {
+    color: #fff;
+    margin-bottom: 1rem;
+}
+
+.view-all-link {
+    text-align: center;
+    margin-top: 3rem;
+}
+/* --- UPDATED Footer --- */
+.footer {
+    background-color: var(--primary-color);
+    text-align: center;
+    padding: 4rem 0 2rem 0; /* Increased top padding */
+    margin-top: 0rem;
+    border-top: 1px solid var(--secondary-color);
+}
+
+.footer-title {
+    font-size: 1.8rem;
+    font-weight: 600;
+    color: #fff;
+    margin-bottom: 0.5rem;
+}
+
+.footer-contact-email {
+    color: var(--text-color-dark);
+    margin-bottom: 2rem;
+}
+
+.footer-social-links {
+    display: flex;
+    justify-content: center;
+    gap: 1rem;
+    margin-bottom: 2rem;
+}
+
+.footer-social-links a {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 50px;
+    height: 50px;
+    background-color: var(--secondary-color);
+    border-radius: 50%; /* Makes the links circular */
+    color: var(--text-color);
+    font-size: 1.2rem;
+    transition: all 0.3s ease;
+}
+
+.footer-social-links a:hover {
+    background: linear-gradient(744deg, #9932CC, var(--accent-color) 60%, #00E5FF);
+    color: #fff;
+    transform: translateY(-5px); /* Add a 'lift' effect */
+}
+
+.footer-copyright {
+    color: var(--text-color-dark);
+    font-size: 0.9rem;
+    border-top: 1px solid var(--secondary-color);
+    padding-top: 2rem;
+    margin-top: 2rem;
+}
+
+/* --- UPDATED Responsive Design --- */
+@media (max-width: 768px) {
+    .hero-title {
+        font-size: 2.5rem;
+    }
+    .cursor {
+        height: 2.5rem;
+    }
+
+    /* NEW: Mobile navigation styles */
+    .hamburger {
+        display: flex; /* Show hamburger on mobile */
+    }
+    
+    .nav-links {
+        position: fixed;
+        top: 0;
+        right: -100%;
+        width: 60%;
+        height: 100vh;
+        
+        /* Set a semi-transparent background color */
+        background-color: rgba(26, 26, 26, 0.96);
+        backdrop-filter: blur(10px);
+
+        /* Add the 'frosted glass' blur effect */
+        -webkit-backdrop-filter: blur(10px);
+        backdrop-filter: blur(10px);
+        
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        gap: 2rem;
+        transition: right 0.4s ease;
+        border-left: 1px solid var(--secondary-color);
+    }
+
+    .nav-links.active {
+        right: 0; /* Slide in */
+    }
+
+    .nav-links a {
+        font-size: 1.2rem;
+    }
+    
+    /* NEW: Animate hamburger to an 'X' */
+    .hamburger.active .bar:nth-child(1) {
+        transform: translateY(8px) rotate(45deg);
+    }
+    .hamburger.active .bar:nth-child(2) {
+        opacity: 0;
+    }
+    .hamburger.active .bar:nth-child(3) {
+        transform: translateY(-8px) rotate(-45deg);
+    }
+}
+
+/* --- NEW: Custom Scrollbar Theme --- */
+
+/* For Webkit-based browsers (Chrome, Safari, Edge) */
+::-webkit-scrollbar {
+    width: 12px; /* Width of the entire scrollbar */
+}
+
+::-webkit-scrollbar-track {
+    background: var(--primary-color); /* Color of the tracking area */
+    border-radius: 10px;
+}
+
+::-webkit-scrollbar-thumb {
+    background-color: var(--accent-color); /* Color of the scroll thumb */
+    border-radius: 10px; /* Roundness of the scroll thumb */
+    border: 3px solid var(--primary-color); /* Creates padding around the thumb */
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background-color: #0088cc; /* Make thumb slightly darker on hover */
+}
+
+/* For Firefox */
+html {
+    scrollbar-width: thin; /* Can be "auto", "thin", or "none" */
+    scrollbar-color: var(--accent-color) var(--primary-color); /* thumb color track color */
+}
+
+/* --- NEW: Revolving Globe Styles --- */
+#globe-container {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    opacity: 0.90 /* Make it subtle so it doesn't distract from the main content */
+}
+
+#globe-canvas {
+    max-width: 100%;
+    max-height: 100%;
+}
+
+/* --- NEW: Tech Icon Colors --- */
+/* Official Brand Colors for a professional look */
+
+.html-color { color: #ffb19c; }  /* Orange */
+.css-color { color: #a4d2f3; }   /* Blue */
+.js-color { color: #F7DF1E; }    /* Yellow */
+.react-color { color: #61DAFB; } /* Light Blue */
+.node-color { color: #2c8a2c; }  /* Green */
+.sql-color { color: #00758F; }   /* Teal */
+.git-color { color: #F05032; }   /* Red-Orange */
+.python-color { color: #5ab5ff;} /* Python Blue */
+.java-color { color: #E76F00; }  /* Orange-Red */
+.cpp-color { color: #6ec0ff; }   /* C++ Blue */
+.c-color { color: #A8B9CC; }     /* Grey */
+
+/* --- NEW: Glitch Effect on Title --- */
+
+.glitch-title {
+    position: relative;
+    color: var(--text-color);
+}
+
+/* The ::before and ::after pseudo-elements are our glitch layers */
+.glitch-title::before,
+.glitch-title::after {
+    content: attr(data-text); /* Grabs the text from the data-text attribute */
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: var(--bg-color); /* Matches the background to hide original text */
+    overflow: hidden;
+}
+
+/* The first layer, shifted left with a red shadow */
+.glitch-title::before {
+    left: 2px;
+    text-shadow: -2px 0 var(--accent-color);
+    /* The animation will be applied on hover or on appear */
+}
+
+/* The second layer, shifted right with a blueish shadow */
+.glitch-title::after {
+    left: -2px;
+    text-shadow: -2px 0 #ff00c1, 2px 2px var(--accent-color);
+     /* The animation will be applied on hover or on appear */
+}
+
+/* --- Animation Triggers --- */
+
+/* 1. On Hover: Play the animations infinitely */
+.glitch-title:hover::before {
+    animation: glitch-anim-1 1s infinite linear alternate-reverse;
+}
+.glitch-title:hover::after {
+    animation: glitch-anim-2 1s infinite linear alternate-reverse;
+}
+
+/* 2. On Appear: Play the animations once */
+.glitch-title.glitch-on-appear::before {
+    animation: glitch-anim-1 0.8s forwards; /* 'forwards' keeps the final state */
+}
+.glitch-title.glitch-on-appear::after {
+    animation: glitch-anim-2 0.8s forwards;
+}
+
+
+/* --- Glitch Animation Keyframes --- */
+/* Uses clip-path to create the classic horizontal slice effect */
+
+@keyframes glitch-anim-1 {
+    0% { clip-path: inset(45% 0 45% 0); }
+    20% { clip-path: inset(15% 0 75% 0); }
+    40% { clip-path: inset(65% 0 20% 0); }
+    60% { clip-path: inset(90% 0 5% 0); }
+    80% { clip-path: inset(40% 0 40% 0); }
+    100% { clip-path: inset(70% 0 15% 0); }
+}
+
+@keyframes glitch-anim-2 {
+    0% { clip-path: inset(78% 0 10% 0); }
+    20% { clip-path: inset(10% 0 85% 0); }
+    40% { clip-path: inset(40% 0 40% 0); }
+    60% { clip-path: inset(20% 0 70% 0); }
+    80% { clip-path: inset(95% 0 2% 0); }
+    100% { clip-path: inset(60% 0 30% 0); }
+}
+
+/* --- NEW: Animated Gradient for Text --- */
+@keyframes move-gradient {
+    0% {
+        background-position: 0% 50%;
+    }
+    50% {
+        background-position: 100% 50%;
+    }
+    100% {
+        background-position: 0% 50%;
+    }
+}
+
+/* --- NEW: CSS-Only Animated Role Subtitle (for smoothness) --- */
+.role {
+    font-size: 1.3rem;
+    font-weight: 400;
+    color: var(--text-color-dark);
+    margin-bottom: 3rem;
+    
+    /* Turn the paragraph into a flex container */
+    display: flex;
+    justify-content: center; /* Center the whole line */
+    align-items: baseline;   /* Align all items along their text baseline */
+    gap: 0.5em;              /* Add a small space between items */
+}
+
+/* This wrapper creates a fixed-height box so the page doesn't jump */
+/* --- FINAL CORRECTED: Animated Role Subtitle --- */
+.word-rotator-wrapper {
+    /* vertical-align is no longer needed with flexbox */
+    display: inline-block;
+    height: 1.2em;
+    position: relative;
+    width: 5em; 
+    text-align: center;
+}
+
+/* The container for all the words */
+.word-rotator-container {
+    position: absolute;
+    top: 0;
+    left: 0;
+}
+
+.word {
+    position: absolute;
+    top: 0;
+    left: 0;
+    opacity: 0;
+    font-weight: 600;
+    
+    /* 1. Set the background to the desired gradient */
+    background: linear-gradient(744deg, #9932CC, var(--accent-color) 60%, #00E5FF);
+    background-size: 200% auto;
+
+    /* 2. Clip the background to the text and make the text transparent */
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+    -webkit-text-fill-color: transparent;
+
+    /* 3. Apply BOTH animations: one for spinning, one for the gradient shimmer */
+    animation: spin-words 12s infinite, move-gradient 5s linear infinite;
+}
+
+/* Stagger the animation start time for each word */
+.word:nth-child(2) { animation-delay: 3s; }
+.word:nth-child(3) { animation-delay: 6s; }
+.word:nth-child(4) { animation-delay: 9s; }
+
+
+/* The keyframes now control the lifecycle of a single word */
+@keyframes spin-words {
+    /* Appear */
+    0% {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    /* Fade in and slide up */
+    3% {
+        opacity: 1;
+        transform: translateY(0);
+    }
+    /* Stay visible */
+    22% {
+        opacity: 1;
+        transform: translateY(0);
+    }
+    /* Fade out and slide up */
+    25% {
+        opacity: 0;
+        transform: translateY(-20px);
+    }
+    /* Remain hidden until the next loop */
+    100% {
+        opacity: 0;
+    }
+}
+
+/* Find this block at the bottom of your file */
+@media (max-width: 768px) {
+    /* ... all of your other existing mobile styles are here ... */
+    /* (e.g., .hero-title, .hamburger, .nav-links, etc.) */
+
+
+    /* --- NEW: Add this block to fix the subtitle on mobile --- */
+    .role {
+        /* Change the layout from a horizontal row to a vertical column */
+        flex-direction: column;
+        
+        /* Center the lines of text now that they are in a column */
+        align-items: center;
+        
+        /* Adjust the spacing for the new vertical layout */
+        gap: 0.2em;
+
+        /* You can optionally make the font a bit smaller on mobile */
+        font-size: 1.2rem;
+    }
+
+    .word-rotator-wrapper {
+    /* vertical-align is no longer needed with flexbox */
+    display: inline-block;
+    height: 1.5em;
+    position: relative;
+    width: 5em; 
+    text-align: center;
+    }
+
+    
+}
+
+/* --- NEW: Chatbot Styles --- */
+#chat-icon {
+    position: fixed;
+    bottom: 25px;
+    right: 25px;
+    width: 60px;
+    height: 60px;
+    background: var(--accent-color);
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+    box-shadow: 0 4px 15px rgba(0, 170, 255, 0.4);
+    z-index: 1000;
+    transition: transform 0.3s ease;
+}
+#chat-icon:hover {
+    transform: scale(1.1);
+}
+#chat-icon svg {
+    width: 32px;
+    height: 32px;
+    fill: #fff;
+}
+
+#chat-widget {
+    position: fixed;
+    bottom: 100px;
+    right: 25px;
+    width: 350px;
+    max-width: 90vw;
+    height: 500px;
+    max-height: 70vh;
+    background: var(--primary-color);
+    border: 1px solid var(--secondary-color);
+    border-radius: 12px;
+    box-shadow: 0 8px 25px rgba(0,0,0,0.3);
+    display: flex;
+    flex-direction: column;
+    overflow: hidden;
+    z-index: 1001;
+    transition: opacity 0.3s ease, transform 0.3s ease;
+}
+#chat-widget.hidden {
+    opacity: 0;
+    transform: translateY(20px);
+    pointer-events: none;
+}
+
+.chat-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1rem;
+    background: var(--secondary-color);
+}
+.chat-header h3 {
+    margin: 0;
+    font-size: 1rem;
+    font-weight: 600;
+}
+#close-chat {
+    background: none;
+    border: none;
+    color: #fff;
+    font-size: 1.5rem;
+    cursor: pointer;
+}
+
+#chat-messages {
+    flex-grow: 1;
+    padding: 1rem;
+    overflow-y: auto;
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+}
+.message {
+    padding: 0.75rem 1rem;
+    border-radius: 18px;
+    max-width: 80%;
+    line-height: 1.4;
+}
+.message.user {
+    background: var(--accent-color);
+    color: #fff;
+    border-bottom-right-radius: 4px;
+    align-self: flex-end;
+}
+.message.bot {
+    background: var(--secondary-color);
+    color: var(--text-color);
+    border-bottom-left-radius: 4px;
+    align-self: flex-start;
+}
+.message.thinking {
+    color: var(--text-color-dark);
+    font-style: italic;
+}
+
+#chat-form {
+    display: flex;
+    border-top: 1px solid var(--secondary-color);
+    padding: 0.5rem;
+}
+#chat-input {
+    flex-grow: 1;
+    border: none;
+    background: transparent;
+    padding: 0.75rem;
+    color: var(--text-color);
+    outline: none;
+}
+#chat-form button {
+    background: var(--accent-color);
+    border: none;
+    color: #fff;
+    padding: 0 1rem;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+/* Projects Section */
+
+/* --- NEW: Project Page Styles --- */
+.projects-page {
+    padding: 0px 0 0px 0; /* Add padding for header */
+}
+/* --- UPDATED: Project Page Styles --- */
+
+
+.filters-container {
+    /* --- Sticky Positioning & Design --- */
+    position: sticky;
+    top: 60px; /* Sticks right below the header (header is approx 60px tall) */
+    z-index: 999;
+    background: rgba(26, 26, 26, 0.75);
+    -webkit-backdrop-filter: blur(10px);
+    backdrop-filter: blur(10px);
+    border-bottom: 1px solid var(--secondary-color);
+    padding: 1rem 0; /* Vertical padding for the bar itself */
+}
+
+/* This is the new nested container that holds the filter controls */
+.filters-container .container {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1rem;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.search-bar {
+    flex-grow: 1;
+    min-width: 250px; /* Ensures search bar has enough space */
+}
+
+#search-input {
+    width: 100%;
+    padding: 0.75rem 1rem;
+    background: var(--secondary-color);
+    border: 1px solid var(--bg-color);
+    border-radius: 5px;
+    color: var(--text-color);
+    font-size: 1rem;
+}
+#search-input:focus {
+    outline: none;
+    border-color: var(--accent-color);
+}
+
+.filter-buttons {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1rem;
+}
+
+.filter-buttons select, .filter-buttons button {
+    padding: 0.75rem 1rem;
+    background: var(--secondary-color);
+    border: 1px solid var(--bg-color);
+    color: var(--text-color);
+    border-radius: 5px;
+    cursor: pointer;
+}
+.filter-buttons button#clear-filters {
+    background: transparent;
+    border-color: var(--accent-color);
+    color: var(--accent-color);
+}
+
+/* This adds space between the sticky filter bar and the first project */
+.projects-list-wrapper {
+    padding-top: 5rem;
+    padding-bottom: 3rem;
+}
+
+/* Styles for the project cards themselves (no change here) */
+#projects-list {
+    display: grid;
+    gap: 2rem;
+}
+
+.project-list-card {
+    display: flex;
+    flex-direction: column;
+    background: var(--primary-color);
+    border: 1px solid var(--secondary-color);
+    border-radius: 8px;
+    overflow: hidden;
+    transition: all 0.3s ease;
+}
+.project-list-card:hover {
+    box-shadow: var(--card-hover-shadow);
+}
+
+.project-list-card .thumbnail img {
+    width: 100%;
+    height: auto;
+    object-fit: cover;
+}
+
+.project-list-card .content {
+    padding: 2rem;
+    display: flex;
+    flex-direction: column;
+}
+
+.project-list-card .title {
+    font-size: 1.8rem;
+    margin-bottom: 1rem;
+}
+
+.project-list-card .description {
+    color: var(--text-color-dark);
+    margin-bottom: 1.5rem;
+    flex-grow: 1;
+}
+
+.project-list-card .card-buttons {
+    display: flex;
+    gap: 1rem;
+}
+
+.project-list-card .btn i {
+    margin-right: 0.1rem;
+}
+
+@media (min-width: 769px) {
+    .project-list-card {
+        flex-direction: row;
+    }
+    .project-list-card .thumbnail {
+        flex: 0 0 40%; /* Thumbnail takes 40% of the width */
+    }
+    .project-list-card .content {
+        flex: 1; /* Content takes the remaining space */
+    }
+}
+
+/* --- NEW: Responsive Filter Styles --- */
+
+/* Hide the mobile-only filter toggle button on desktop */
+#filter-toggle-btn {
+    display: none;
+}
+
+
+/* --- Mobile View (< 768px) --- */
+@media (max-width: 768px) {
+    /* Adjust the main page padding */
+    .projects-page {
+        padding-top: 80px;
+    }
+
+    /* Make the filter container stack vertically */
+    .filters-container {
+        top: 60px; /* Stick closer to the header on mobile */
+        flex-direction: column;
+        align-items: stretch; /* Make children fill the width */
+    }
+
+    /* Show the filter toggle button */
+    #filter-toggle-btn {
+        display: block;
+        width: 100%;
+        padding: 0.75rem;
+        background: var(--secondary-color);
+        border: 1px solid var(--bg-color);
+        color: var(--text-color);
+        border-radius: 5px;
+        text-align: center;
+        cursor: pointer;
+        font-size: 1rem;
+    }
+    #filter-toggle-btn i {
+        margin-left: 0.5rem;
+    }
+
+    /* Hide the actual filter buttons by default on mobile */
+    .filter-buttons {
+        display: none;
+        flex-direction: column; /* Stack them vertically when shown */
+        width: 100%;
+        margin-top: 1rem;
+    }
+
+    /* This class (added by JS) will show the filters */
+    .filters-container.filters-open .filter-buttons {
+        display: flex;
+    }
+}
+
+/* --- NEW: Project Card Stats Bar Styles --- */
+.project-stats {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1.5rem;
+    align-items: center;
+    border-top: 1px solid var(--secondary-color);
+    margin-top: 2rem;
+    padding-top: 1.5rem;
+    font-size: 0.9rem;
+    color: var(--text-color-dark);
+}
+
+.project-stats .stat {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+.project-stats .like-btn {
+    background: transparent;
+    border: 1px solid var(--secondary-color);
+    color: var(--text-color-dark);
+    padding: 0.3rem 0.8rem;
+    border-radius: 20px;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    transition: all 0.3s ease;
+}
+
+.project-stats .like-btn:hover {
+    border-color: var(--accent-color);
+    color: var(--accent-color);
+}
+
+/* Style for when the button has been clicked */
+.project-stats .like-btn.liked {
+    background: linear-gradient(744deg, #9932CC, var(--accent-color) 60%, #00E5FF);
+    border-color: #fff;
+    color: #fff;
+}
+
+
+/* Find this block at the bottom of your file */
+@media (max-width: 768px) {
+    /* ... all your other existing mobile styles are here ... */
+    /* (e.g., for .role, .filters-container, etc.) */
+
+
+    /* --- NEW: Responsive Project Card Styles --- */
+    
+    /* Stack the 'Visit Site' and 'See Code' buttons vertically */
+    .project-list-card .card-buttons {
+        flex-direction: column;
+        align-items: stretch; /* Makes each button take the full width of the container */
+    }
+    
+    .project-list-card .card-buttons .btn {
+        text-align: center; /* Center the text inside the now full-width buttons */
+    }
+
+}
+
+/* --- NEW: Project Card Meta Tags (Date & Difficulty) --- */
+.project-meta {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1rem;
+    align-items: center;
+    margin-bottom: 1.5rem; /* Space between tags and description */
+}
+
+.meta-date {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    font-size: 0.9rem;
+    color: var(--text-color-dark);
+}
+
+.meta-difficulty {
+    font-size: 0.8rem;
+    font-weight: 600;
+    padding: 0.25rem 0.75rem;
+    border-radius: 20px;
+    color: #121212; /* Dark text for all tags */
+}
+
+/* Color coding for difficulty tags */
+.difficulty-easy {
+    background-color: #28a745; /* Green */
+}
+.difficulty-medium {
+    background-color: #ffc107; /* Yellow */
+}
+.difficulty-hard {
+    background-color: #ff4d6d; /* Red */
+}
+
+/* --- NEW: Blog Page Styles --- */
+.blog-page {
+    padding: 120px 0 60px 0;
+}
+.section-subtitle {
+    text-align: center;
+    color: var(--text-color-dark);
+    margin-top: -2rem;
+    margin-bottom: 3rem;
+}
+
+.blog-filters {
+    display: flex;
+    justify-content: center;
+    gap: 1rem;
+    margin-bottom: 3rem;
+}
+
+.filter-btn {
+    padding: 0.5rem 1.5rem;
+    border: 1px solid var(--secondary-color);
+    background: transparent;
+    color: var(--text-color-dark);
+    border-radius: 20px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+.filter-btn:hover {
+    color: #fff;
+    border-color: var(--accent-color);
+}
+.filter-btn.active {
+    background: var(--accent-color);
+    color: #fff;
+    border-color: var(--accent-color);
+}
+
+#blog-posts-container {
+    display: grid;
+    /* Create 3 columns on desktop, with a gap */
+    grid-template-columns: repeat(3, 1fr);
+    gap: 2rem;
+}
+
+.blog-list-card {
+    background: var(--primary-color);
+    border: 1px solid var(--secondary-color);
+    border-radius: 8px;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    transition: all 0.3s ease;
+}
+.blog-list-card:hover {
+    transform: translateY(-5px);
+    box-shadow: var(--card-hover-shadow);
+}
+
+.blog-list-card .thumbnail img {
+    width: 100%;
+    height: 200px;
+    object-fit: cover;
+}
+
+.blog-list-card .content {
+    padding: 1.5rem;
+    display: flex;
+    flex-direction: column;
+    flex-grow: 1; /* Allows content to fill space */
+}
+.blog-list-card .title {
+    font-size: 1.3rem;
+    margin-bottom: 0.75rem;
+}
+.blog-list-card .meta {
+    display: flex;
+    justify-content: space-between;
+    font-size: 0.8rem;
+    color: var(--text-color-dark);
+    margin-bottom: 1rem;
+}
+.blog-list-card .tag {
+    font-weight: 600;
+    padding: 0.2rem 0.6rem;
+    border-radius: 4px;
+}
+.tag-professional {
+    background-color: rgba(0, 170, 255, 0.2);
+    color: var(--accent-color);
+}
+.tag-personal {
+    background-color: rgba(255, 77, 109, 0.2);
+    color: #ff4d6d;
+}
+
+.blog-list-card .excerpt {
+    font-size: 0.9rem;
+    line-height: 1.6;
+    color: var(--text-color-dark);
+    flex-grow: 1;
+    
+    /* This creates the fade-out effect */
+    max-height: 5.4rem; /* 3 lines (1.6 * 0.9 * 3) + a little extra */
+    position: relative;
+    overflow: hidden;
+}
+.blog-list-card .excerpt::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 2rem;
+    background: linear-gradient(to bottom, transparent, var(--primary-color));
+}
+
+.blog-list-card .read-more-btn {
+    margin-top: 1.5rem;
+    align-self: flex-start; /* Align button to the left */
+}
+
+/* Responsive Grid for Blog List */
+@media (max-width: 992px) {
+    #blog-posts-container {
+        grid-template-columns: repeat(2, 1fr); /* 2 columns on tablets */
+    }
+}
+@media (max-width: 768px) {
+    #blog-posts-container {
+        grid-template-columns: 1fr; /* 1 column on mobile */
+    }
+}
+
+/* --- FINAL CORRECTED: Single Blog Post Page Styles --- */
+.single-post-page {
+    /* Add padding to the top to push content down from the header */
+    padding-top: 100px; 
+    padding-bottom: 60px;
+}
+
+.btn-back {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    color: var(--text-color-dark);
+    text-decoration: none;
+    margin-bottom: 2rem; /* Space between back button and title */
+    transition: color 0.3s ease;
+}
+
+.btn-back:hover {
+    color: var(--accent-color);
+}
+
+/* The article itself doesn't need special positioning now */
+#post-content-area {
+    width: 100%;
+}
+
+.post-header {
+    /* Center the header text */
+    text-align: center;
+    margin-bottom: 2rem;
+}
+
+#post-title {
+    font-size: 3rem;
+    font-weight: 700;
+    line-height: 1.2;
+    margin-bottom: 1rem;
+}
+
+#post-meta {
+    display: flex;
+    justify-content: center;
+    gap: 1.5rem;
+    font-size: 0.9rem;
+    color: var(--text-color-dark);
+}
+
+.post-thumbnail-container {
+    /* The thumbnail can be wider than the text */
+    max-width: 1100px; 
+    width: 100%;
+    max-height: 550px; 
+    margin: 0 auto 3rem auto; /* Center the image container */
+    border-radius: 8px;
+    overflow: hidden;
+}
+
+#post-image {
+    width: 00%;
+    object-fit: cover;
+}
+
+/* The main article text, centered with a comfortable reading width */
+#post-body {
+    max-width: 800px;
+    margin: 0 auto; /* This centers the text block */
+    font-size: 1.1rem;
+    line-height: 1.8;
+    text-align: justify;
+    hyphens: auto;
+}
+
+/* --- Styles for elements inside the article body --- */
+#post-body p {
+    margin-bottom: 1.5rem;
+}
+
+#post-body a {
+    color: var(--accent-color);
+    text-decoration: underline;
+}
+
+#post-body blockquote {
+    margin: 2rem 0;
+    padding-left: 1.5rem;
+    border-left: 4px solid var(--accent-color);
+    font-style: italic;
+    color: var(--text-color-dark);
+}
+
+#post-body pre {
+    background-color: var(--primary-color);
+    padding: 1rem;
+    border-radius: 8px;
+    border: 1px solid var(--secondary-color);
+    overflow-x: auto;
+    font-family: 'Courier New', Courier, monospace;
+}
+
+/* --- UPDATED: Back Button Style for Single Post Page --- */
+.btn-back {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    color: var(--text-color-dark);
+    text-decoration: none;
+    /* We'll use padding on the parent .single-post-page to control spacing now */
+    transition: color 0.3s ease;
+}
+
+.btn-back:hover {
+    color: var(--accent-color);
+}
+
+/* We adjust the main page padding to make room for the back button */
+.single-post-page {
+    /* Top padding is increased to push content down */
+    padding: 140px 0 60px 0; 
+    position: relative;
+}
+
+/* On mobile, we reduce the padding for a tighter layout */
+@media (max-width: 768px) {
+    .single-post-page {
+        padding-top: 100px;
+    }
+}
+
+/* --- FINAL REFRESHED: About Page Styles --- */
+.about-section {
+    padding: 6rem 0;
+}
+
+/* --- Section 1: Hero Intro --- */
+#about-hero {
+    padding-top: 120px;
+    background: var(--primary-color); /* Full-width colored background */
+}
+.about-hero-content {
+    display: grid;
+    grid-template-columns: 1.5fr 1fr;
+    align-items: center;
+    gap: 3rem;
+}
+.about-text h1 {
+    font-size: 3.5rem;
+    line-height: 1.2;
+    margin-bottom: 1rem;
+}
+.about-text p {
+    font-size: 1.1rem;
+    color: var(--text-color-dark);
+    max-width: 50ch; /* Limit line length for readability */
+}
+.about-image img {
+    width: 100%;
+    border-radius: 12px;
+}
+
+/* --- UPDATED: Skills Section with Circular Meters --- */
+#skills-section {
+    text-align: center;
+    padding: 4rem 0;
+}
+.skills-subtitle {
+    font-size: 1.5rem;
+    color: var(--text-color-dark);
+    margin-top: 3rem;
+    margin-bottom: 2rem;
+    font-weight: 400;
+}
+.skills-grid {
+    display: grid;
+    /* This creates a responsive grid of circles */
+    grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+    gap: 2rem;
+    max-width: 1000px;
+    margin: 0 auto;
+}
+
+.skill-meter {
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.skill-meter svg {
+    width: 160px;
+    height: 160px;
+    /* Start the circle from the top */
+    transform: rotate(-90deg);
+}
+.skill-meter circle {
+    fill: none;
+    stroke-width: 10;
+}
+.skill-meter-bg { /* The background track of the circle */
+    stroke: var(--secondary-color);
+}
+.skill-meter-fg { /* The colored progress part of the circle */
+    stroke-linecap: round;
+    /* This will be animated by JavaScript */
+    stroke-dasharray: 283;
+    stroke-dashoffset: 283;
+    transition: stroke-dashoffset 1.5s ease-out;
+}
+
+.skill-info {
+    position: absolute;
+    text-align: center;
+}
+.skill-percent {
+    display: block;
+    font-size: 2rem;
+    font-weight: bold;
+    color: #fff;
+}
+.skill-name {
+    font-size: 1rem;
+    color: var(--text-color-dark);
+}
+
+/* --- Section 3: Journey --- */
+/* --- NEW & IMPROVED: Journey Timeline Section --- */
+#journey-section {
+    padding: 4rem 0;
+
+
+    
+    
+}
+.timeline-container {
+    position: relative;
+    max-width: 800px;
+    margin: 2rem auto;
+    /* This border creates the main timeline bar */
+    border-left: 3px solid var(--secondary-color);
+    padding-left: 40px; 
+}
+
+.timeline-event {
+    position: relative;
+    margin-bottom: 3rem;
+}
+.timeline-event:last-child {
+    margin-bottom: 0;
+}
+
+.timeline-card  b {
+    color :yellow
+}
+
+
+.timeline-marker {
+    position: absolute;
+    /* Position the dot over the timeline bar */
+    left: -58px; 
+    top: 5px;
+    height: 20px;
+    width: 20px;
+    background-color: var(--accent-color);
+    border: 4px solid var(--primary-color);
+    border-radius: 50%;
+    z-index: 1;
+}
+
+.timeline-card {
+    background: linear-gradient(744deg, #411557, var(--accent-color) 80%, #003035);
+    backdrop-filter: blur(10px);
+    border: 1px solid var(--secondary-color);
+    padding: 1.5rem 2rem;
+    border-radius: 8px;
+}
+
+.timeline-badge {
+    display: inline-block;
+    font-size: 0.8rem;
+    font-weight: 600;
+    padding: 0.25rem 0.75rem;
+    border-radius: 20px;
+    margin-bottom: 1rem;
+    color: #fff;
+}
+.badge-academic {
+    background-color: var(--accent-color);
+}
+.badge-experience {
+    background-color: #28a745; /* Green */
+}
+.badge-prestigious {
+    background-color: #dc3545; /* Red */
+    /* This creates the red glow */
+    box-shadow: 0 0 15px rgba(220, 53, 69, 0.6);
+}
+
+.timeline-card h3 {
+    font-size: 1.4rem;
+    color: #fff;
+    margin: 0;
+}
+.timeline-card .timeline-meta {
+    font-size: 0.9rem;
+    color: white;
+    background-color: #1212129f;
+    margin-top: 0.25rem;
+    margin-bottom: 1rem;
+    padding: 0.25rem 0.5rem;
+    backdrop-filter: blur(10px);
+    border-radius: 10px;
+}
+.timeline-card p {
+    color: var(--text-color);
+    line-height: 1.7;
+    margin: 0;
+}
+
+/* --- Responsive styles for the new timeline --- */
+@media (max-width: 768px) {
+    .timeline-container {
+        padding: 30px; /* Reduce space on mobile */
+    }
+    .timeline-marker {
+        left: -26px; /* Adjust marker position */
+
+    .timeline-event {
+        left: 20px;
+    }
+}
+}
+
+/* --- Responsive Styles for Refreshed About Page --- */
+@media (max-width: 768px) {
+    .about-hero-content, .journey-item {
+        grid-template-columns: 1fr; /* Stack all columns on mobile */
+        text-align: center;
+    }
+    .about-text p {
+        max-width: 100%;
+    }
+    /* On mobile, reverse the order of image/text so image is on top */
+    .about-image {
+        order: -1;
+    }
+    .journey-item, .journey-item:nth-child(even) {
+        direction: ltr; /* Reset direction for all items */
+    }
+    .journey-text {
+        text-align: center;
+    }
+    .journey-text ul {
+        display: inline-block;
+        text-align: left;
+    }
+}
+
+/* --- NEW: Fading Thumbnail Effect for Project Cards --- */
+
+/* The thumbnail container needs to be a positioning context for the overlay */
+.project-list-card .thumbnail {
+    position: relative;
+    /* Ensure the image is behind the gradient */
+    display: flex; 
+}
+
+.project-list-card .thumbnail img {
+    z-index: 1;
+}
+
+/* This ::after pseudo-element is the gradient overlay itself */
+.project-list-card .thumbnail::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 2; /* Position the gradient on top of the image */
+    
+    /* This is the default fade for mobile (top-to-bottom) */
+    /* It starts transparent and fades to the card's background color */
+    background: linear-gradient(to bottom, rgba(26, 26, 26, 0) 60%, var(--primary-color) 100%);
+}
+
+
+/* --- Responsive Fade Direction for Desktop --- */
+/* On larger screens (where the layout is a row), we change the fade direction */
+@media (min-width: 769px) {
+    .project-list-card .thumbnail::after {
+        /* The fade now goes from left-to-right */
+        background: linear-gradient(to right, rgba(26, 26, 26, 0) 60%, var(--primary-color) 100%);
+    }
+}
+
+/* --- NEW: Disabled Button Styles --- */
+.btn[disabled] {
+    opacity: 0.5;
+    cursor: not-allowed;
+    background: var(--secondary-color) !important; /* A flat, non-interactive background */
+}
+
+/* Specifically disable the hover effects we created */
+.btn-primary[disabled]:hover::before {
+    transform: translateX(-101%); /* Prevent swipe effect */
+}
+
+.btn-secondary[disabled]:hover {
+    mix-blend-mode: normal; /* Prevent knockout effect */
+    color: #fff;
+    transform: none;
+}
+
+/* --- LinkedIn Badge Centering --- */
+.LI-profile-badge {
+    margin: 2rem auto; /* Adds space above/below and centers it horizontally */
+}
+
+/* --- FINAL CORRECTED: CTA & Contact Form Section --- */
+
+#collaboration-cta {
+    padding: 6rem 0;
+}
+
+/* This is the main container for the two columns */
+.cta-grid {
+    display: flex;
+    padding: 10px;
+    flex-wrap: wrap; /* This is key for responsiveness */
+    gap: 4rem;
+    align-items: center;
+    justify-content: center;
+}
+
+/* This rule applies to BOTH columns (the text/badge and the form) */
+.cta-text-and-badge,
+.cta-form {
+    flex: 1; /* Allows both columns to grow and take up equal space */
+    min-width: 350px; /* Prevents them from getting too squished before they wrap */
+}
+
+/* Styles for the left column content */
+.cta-text-and-badge h2 {
+    font-size: 2.5rem;
+    margin-bottom: 1rem;
+}
+.cta-text-and-badge p {
+    color: var(--text-color-dark);
+}
+.LI-profile-badge {
+    margin-top: 2rem;
+}
+
+/* Styles for the right column (the form) */
+.cta-form form {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+}
+.cta-form input,
+.cta-form textarea {
+    width: 100%;
+    padding: 1rem;
+    background: var(--primary-color);
+    border: 1px solid var(--secondary-color);
+    border-radius: 5px;
+    color: var(--text-color);
+    font-size: 1rem;
+    font-family: var(--font-family);
+    transition: border-color 0.3s ease;
+}
+.cta-form input:focus,
+.cta-form textarea:focus {
+    outline: none;
+    border-color: var(--accent-color);
+}
+.cta-form .hidden {
+    display: none;
+}
+
+
+/* --- NEW: Custom Tooltip for Footer Email Icon --- */
+
+/* The link needs to be a positioning container for the tooltip */
+.footer-social-links a[data-tooltip] {
+    position: relative;
+}
+
+/* This is the tooltip box itself */
+.footer-social-links a[data-tooltip]::before {
+    content: attr(data-tooltip); /* Displays the email address */
+    position: absolute;
+    
+    /* Position it above the icon */
+    bottom: 100%;
+    left: 50%;
+    transform: translateX(-50%);
+    margin-bottom: 8px;
+    
+    /* Your requested custom styling */
+    background: rgba(18, 18, 18, 0.85); /* Semi-transparent black */
+    backdrop-filter: blur(5px);
+    color: #fff; /* White text */
+    padding: 6px 12px;
+    border-radius: 6px;
+    font-size: 0.9rem;
+    white-space: nowrap;
+    
+    /* Hide it by default */
+    opacity: 0;
+    visibility: hidden;
+    pointer-events: none;
+    
+    /* Animation */
+    transform: translate(-50%, 10px);
+    transition: opacity 0.3s ease, transform 0.3s ease;
+}

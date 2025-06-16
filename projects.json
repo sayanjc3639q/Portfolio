@@ -1,0 +1,59 @@
+[
+  {
+    "id": 1,
+    "title": "AI Tools Explorer",
+    "description": "A web application built with React to discover and explore the best AI tools available. Features a dynamic and responsive interface.",
+    "imageUrl": "https://celadon-cocada-e8d448.netlify.app/WST7830e23sa8cdc3.jpg",
+    "siteUrl": "#",
+    "githubUrl": "https://github.com/sayanjc3639q",
+    "date": "2025-05-20",
+    "difficulty": "Medium",
+    "type": "Front-end",
+    "siteViews": 1250,
+    "codeViews": 830,
+    "likes": 152
+  },
+  {
+    "id": 2,
+    "title": "OTT Subscription Manager",
+    "description": "A full-stack application to help users save money by managing their OTT platform subscriptions. Includes a Node.js backend.",
+    "imageUrl": "https://celadon-cocada-e8d448.netlify.app/WST7830e9sa8cots4.jpg",
+    "siteUrl": "https://shareott.netlify.app",
+    "githubUrl": "https://github.com/sayanjc3639q/ottshare",
+    "date": "2025-04-15",
+    "difficulty": "Hard",
+    "type": "Front+Backend",
+    "siteViews": 1250,
+    "codeViews": 830,
+    "likes": 152
+  },
+  {
+    "id": 3,
+    "title": "Republic of Novara",
+    "description": "A conceptual government website portfolio piece with a focus on clean UI/UX and accessibility. Built with static HTML, CSS, and JavaScript.",
+    "imageUrl": "https://celadon-cocada-e8d448.netlify.app/WST7830e9sa8cgvws3.jpg",
+    "siteUrl": "#",
+    "githubUrl": "https://github.com/sayanjc3639q",
+    "date": "2025-02-10",
+    "difficulty": "Easy",
+    "type": "Front-end",
+    "siteViews": 1250,
+    "codeViews": 830,
+    "likes": 152
+  },
+
+  {
+    "id": 4,
+    "title": "PPT generator using API",
+    "description": "A web application that generates PowerPoint presentations from user-provided content using a REST API.",
+    "imageUrl": "https://celadon-cocada-e8d448.netlify.app/WST7830e9sa8cpptg.jpg",
+    "siteUrl": "#",
+    "githubUrl": "https://github.com/sayanjc3639q",
+    "date": "2025-06-01",
+    "difficulty": "Medium",
+    "type": "Front+Backend",
+    "siteViews": 1250,
+    "codeViews": 830,
+    "likes": 153
+  }
+]
