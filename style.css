@@ -664,7 +664,7 @@ img {
         right: -100%;
         width: 60%;
         height: 100vh;
-        
+
         /* Set a semi-transparent background color */
         background-color: rgba(26, 26, 26, 0.96);
         backdrop-filter: blur(10px);
