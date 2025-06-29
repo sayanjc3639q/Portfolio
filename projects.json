@@ -3,7 +3,7 @@
     "id": 1,
     "title": "AI Tools Explorer",
     "description": "A web application built with React to discover and explore the best AI tools available. Features a dynamic and responsive interface.",
-    "imageUrl": "https://celadon-cocada-e8d448.netlify.app/WST7830e23sa8cdc3.jpg",
+    "imageUrl": "https://celadon-cocada-e8d448.netlify.app/WST7830e23sa8cdc3.png",
     "siteUrl": "#",
     "githubUrl": "https://github.com/sayanjc3639q/aitoolsexplorer",
     "date": "2025-05-20",
@@ -17,43 +17,60 @@
     "id": 2,
     "title": "OTT Subscription Manager",
     "description": "A full-stack application to help users save money by managing their OTT platform subscriptions. Includes a Node.js backend.",
-    "imageUrl": "https://celadon-cocada-e8d448.netlify.app/WST7830e9sa8cots4.jpg",
+    "imageUrl": "https://celadon-cocada-e8d448.netlify.app/WST7830e9sa8cots4.png",
     "siteUrl": "https://shareott.netlify.app",
     "githubUrl": "https://github.com/sayanjc3639q/ottshare",
     "date": "2025-04-15",
     "difficulty": "Hard",
     "type": "Front+Backend",
-    "siteViews": 1250,
-    "codeViews": 830,
-    "likes": 152
+    "siteViews": 120,
+    "codeViews": 80,
+    "likes": 12
   },
   {
     "id": 3,
     "title": "Republic of Novara",
     "description": "A conceptual government website portfolio piece with a focus on clean UI/UX and accessibility. Built with static HTML, CSS, and JavaScript.",
-    "imageUrl": "https://celadon-cocada-e8d448.netlify.app/WST7830e9sa8cgvws3.jpg",
+    "imageUrl": "https://celadon-cocada-e8d448.netlify.app/WST7830e9sa8cgvws3.png",
     "siteUrl": "#",
     "githubUrl": "https://github.com/sayanjc3639q",
     "date": "2025-02-10",
     "difficulty": "Easy",
     "type": "Front-end",
-    "siteViews": 1250,
-    "codeViews": 830,
-    "likes": 152
+    "siteViews": 50,
+    "codeViews": 3,
+    "likes": 5
   },
 
   {
     "id": 4,
     "title": "PPT generator using API",
     "description": "A web application that generates PowerPoint presentations from user-provided content using a REST API.",
-    "imageUrl": "https://celadon-cocada-e8d448.netlify.app/WST7830e9sa8cpptg.jpg",
+    "imageUrl": "https://celadon-cocada-e8d448.netlify.app/WST7830e9sa8cpptg.png",
     "siteUrl": "#",
     "githubUrl": "https://github.com/sayanjc3639q",
     "date": "2025-06-01",
     "difficulty": "Medium",
     "type": "Front+Backend",
-    "siteViews": 1250,
-    "codeViews": 830,
-    "likes": 153
+    "siteViews": 250,
+    "codeViews": 30,
+    "likes": 15
+  },
+
+  {
+    "id": 4,
+    "title": "Advanced Interactive Piano",
+    "description": "A fully interactive web-based piano built with JavaScript, TailwindCSS, and Tone.js. Play with multiple instruments, reverb, sustain pedal, and more—all in your browser!",
+    "imageUrl": "https://celadon-cocada-e8d448.netlify.app/WST490904PIANO093.png",
+    "siteUrl": "https://interectivepiano.netlify.app",
+    "githubUrl": "https://github.com/sayanjc3639q/interective_piano",
+    "date": "2025-06-01",
+    "difficulty": "Medium",
+    "type": "Front",
+    "siteViews": 110,
+    "codeViews": 82,
+    "likes": 20
   }
+
+
 ]
