@@ -58,7 +58,7 @@
   },
 
   {
-    "id": 4,
+    "id": 5,
     "title": "Advanced Interactive Piano",
     "description": "A fully interactive web-based piano built with JavaScript, TailwindCSS, and Tone.js. Play with multiple instruments, reverb, sustain pedal, and more—all in your browser!",
     "imageUrl": "https://celadon-cocada-e8d448.netlify.app/WST490904PIANO093.png",
@@ -70,6 +70,20 @@
     "siteViews": 110,
     "codeViews": 82,
     "likes": 20
+  },
+  {
+    "id": 6,
+    "title": "C Programming Basics to Advance",
+    "description": "This is a self improvement project where all the basics of C programming is enlisted with code.",
+    "imageUrl": "https://celadon-cocada-e8d448.netlify.app/WST516892025.png",
+    "siteUrl": "https://cquestions.netlify.app",
+    "githubUrl": "https://github.com/sayanjc3639q/C_Programming",
+    "date": "2025-08-09",
+    "difficulty": "Medium",
+    "type": "Front+Backend",
+    "siteViews": 23,
+    "codeViews": 19,
+    "likes": 3
   }
 
 
